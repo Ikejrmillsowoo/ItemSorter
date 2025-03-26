@@ -1,7 +1,29 @@
 package rocks.zipcode.io.comparators;
 
+import rocks.zipcode.io.Item;
+
+import java.util.Comparator;
+import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
+import java.util.function.ToLongFunction;
+
 /**
  * @author leon on 30/01/2019.
  */
-public class IdComparator {
+public class IdComparator implements Comparator<Item> {
+    private Long id;
+
+    public IdComparator() {
+    }
+
+    public IdComparator(Long id) {
+        this.id = id;
+    }
+
+
+    @Override
+    public int compare(Item o1, Item o2) {
+        return o1.getId().compareTo(o2.getId());
+    }
 }
